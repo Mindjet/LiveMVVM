@@ -1,12 +1,20 @@
 package io.github.mindjet.sample
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
+import io.github.mindjet.livemvvm.view.BaseLiveActivity
+import io.github.mindjet.livemvvm.viewmodel.BaseViewModel
+import io.github.mindjet.sample.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseLiveActivity<ActivityMainBinding, MainModel>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun getVariableId(): Int {
+        return BR.data
+    }
+
+    override fun getLayoutId(): Int {
+        return R.layout.activity_main
+    }
+
+    override fun getViewModel(): BaseViewModel<ActivityMainBinding, MainModel> {
+        return MainViewModel()
     }
 }
