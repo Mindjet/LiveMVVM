@@ -7,12 +7,12 @@ import io.github.mindjet.livemvvm.viewmodel.BaseViewModel
 /**
  * Created by Mindjet on 2017/9/25.
  */
-interface BaseView<B : ViewDataBinding, M : BaseModel> {
+interface BaseView<B : ViewDataBinding> {
 
     fun getVariableId(): Int
 
     fun getLayoutId(): Int
 
-    fun getViewModel(): BaseViewModel<B, M>
+    fun getViewModel(): BaseViewModel<B>
 
 }
