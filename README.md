@@ -2,7 +2,7 @@
 
 [![Author](https://img.shields.io/badge/author-mindjet-yellow.svg)](https://github.com/Mindjet)
 
-<img src="./art/LiveMVVM.png" width="300"/>
+<img src="./art/LiveMVVM.png" width="260"/>
 
 ## Intro
 
@@ -29,6 +29,14 @@ implementation 'com.github.Mindjet:LiveMVVM:v1.0.0'		//gralde 4.x
 compile 'com.github.Mindjet:LiveMVVM:v1.0.0'		//gradle 3.x
 ```
 
+Last but not least, add `android-architecture` library to your module:
+
+```groovy
+implementation "android.arch.lifecycle:runtime:1.0.0"
+implementation "android.arch.lifecycle:extensions:1.0.0-alpha9-1"
+annotationProcessor "android.arch.lifecycle:compiler:1.0.0-alpha9-1"
+```
+
 ## How2Use
 
 Talking about MVVM, no doubt we have to encounter Model, View and ViewModel. I have made a clear line between these components.
@@ -39,7 +47,7 @@ In order to use LiveMVVM, your Model is supposed to the class named `BaseModel`.
 
 ### View
 
-The typical View is an `Activity`.  Your Activity is supposed to inherit the class named `BaseLiveActivity`, which inherits `AppCompatActivity`. 
+The typical View is an `Activity`.  Your Activity is supposed to inherit the class named `BaseActivity`, which inherits `AppCompatActivity`. 
 
 ### ViewModel
 

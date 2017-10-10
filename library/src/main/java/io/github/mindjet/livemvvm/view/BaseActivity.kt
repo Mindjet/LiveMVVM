@@ -12,10 +12,10 @@ import io.github.mindjet.livemvvm.viewmodel.BaseViewModel
  * Created by Mindjet on 2017/9/25.
  */
 
-abstract class BaseLiveActivity<B : ViewDataBinding, M : BaseModel> : AppCompatActivity(), BaseView<B, M> {
+abstract class BaseActivity<B : ViewDataBinding, M : BaseModel> : AppCompatActivity(), BaseView<B, M> {
 
     private var mBinding: B? = null
-    private var mViewModel: BaseViewModel<B, M>? = null
+    private var mViewModel: BaseViewModel<B>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,8 +23,12 @@ abstract class BaseLiveActivity<B : ViewDataBinding, M : BaseModel> : AppCompatA
         mViewModel = ViewModelProviders.of(this).get(getViewModel().javaClass)
         mBinding?.setVariable(getVariableId(), mViewModel)
         mViewModel?.setBinding(mBinding!!)
-        mViewModel?.startObserve(this)
         mViewModel?.onAttached()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mViewModel?.onDetached()
     }
 
 }
