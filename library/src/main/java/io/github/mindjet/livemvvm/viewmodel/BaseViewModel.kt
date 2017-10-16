@@ -10,11 +10,17 @@ abstract class BaseViewModel<B : ViewDataBinding> : ViewModel() {
 
     protected var mBinding: B? = null
 
-    fun setBinding(binding: B) {
+    fun onAttachedWithActivity(binding: B) {
         mBinding = binding
+        onAttachedTheFirstTime(binding)
+        onAttached(binding)
     }
 
-    fun onAttached() {
+    protected fun onAttachedTheFirstTime(binding: B) {
+
+    }
+
+    protected fun onAttached(binding: B) {
 
     }
 

@@ -5,14 +5,13 @@ import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import io.github.mindjet.livemvvm.model.BaseModel
 import io.github.mindjet.livemvvm.viewmodel.BaseViewModel
 
 /**
  * Created by Mindjet on 2017/9/25.
  */
 
-abstract class BaseActivity<B : ViewDataBinding, M : BaseModel> : AppCompatActivity(), BaseView<B> {
+abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), BaseView<B> {
 
     private var mBinding: B? = null
     private var mViewModel: BaseViewModel<B>? = null
@@ -21,9 +20,8 @@ abstract class BaseActivity<B : ViewDataBinding, M : BaseModel> : AppCompatActiv
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, getLayoutId())
         mViewModel = ViewModelProviders.of(this).get(getViewModel().javaClass)
-        mBinding?.setVariable(getVariableId(), mViewModel)
-        mViewModel?.setBinding(mBinding!!)
-        mViewModel?.onAttached()
+        mViewModel?.onAttachedWithActivity(mBinding!!)
+
     }
 
     override fun onDestroy() {

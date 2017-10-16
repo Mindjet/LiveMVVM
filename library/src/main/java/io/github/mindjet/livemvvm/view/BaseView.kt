@@ -9,8 +9,6 @@ import io.github.mindjet.livemvvm.viewmodel.BaseViewModel
  */
 interface BaseView<B : ViewDataBinding> {
 
-    fun getVariableId(): Int
-
     fun getLayoutId(): Int
 
     fun getViewModel(): BaseViewModel<B>
