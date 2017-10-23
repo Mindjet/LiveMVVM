@@ -9,16 +9,21 @@ import android.support.annotation.LayoutRes
 abstract class BaseItemViewModel<B : ViewDataBinding> : BaseViewModel<B>() {
 
     @LayoutRes
-    abstract fun getLayoutId(): Int
+    abstract fun needLayoutId(): Int
 
     fun onAttachedToAdapter(binding: B) {
-        if (mBinding == null) {
-            mBinding = binding
+        if (this.binding == null) {
+            this.binding = binding
             onAttachedTheFirstTime(binding)
             onAttached(binding)
         } else {
             onAttached(binding)
         }
     }
+
+    override fun getActivity(): Nothing {
+        throw KotlinNullPointerException("BaseItemViewModel does not has a reference to activity.")
+    }
+
 
 }

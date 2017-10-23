@@ -13,20 +13,19 @@ import io.github.mindjet.livemvvm.viewmodel.BaseViewModel
 
 abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), BaseView<B> {
 
-    private var mBinding: B? = null
-    private var mViewModel: BaseViewModel<B>? = null
+    private var binding: B? = null
+    private var viewModel: BaseViewModel<B>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = DataBindingUtil.setContentView(this, getLayoutId())
-        mViewModel = ViewModelProviders.of(this).get(getViewModel().javaClass)
-        mViewModel?.onAttachedWithActivity(mBinding!!)
-
+        binding = DataBindingUtil.setContentView(this, needLayoutId())
+        viewModel = ViewModelProviders.of(this).get(needViewModel().javaClass)
+        viewModel?.onAttachedWithActivity(binding!!,this)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        mViewModel?.onDetached()
+        viewModel?.onDetached()
     }
 
 }

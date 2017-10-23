@@ -1,7 +1,7 @@
 package io.github.mindjet.livemvvm.view
 
 import android.databinding.ViewDataBinding
-import io.github.mindjet.livemvvm.model.BaseModel
+import android.support.annotation.LayoutRes
 import io.github.mindjet.livemvvm.viewmodel.BaseViewModel
 
 /**
@@ -9,8 +9,9 @@ import io.github.mindjet.livemvvm.viewmodel.BaseViewModel
  */
 interface BaseView<B : ViewDataBinding> {
 
-    fun getLayoutId(): Int
+    @LayoutRes
+    fun needLayoutId(): Int
 
-    fun getViewModel(): BaseViewModel<B>
+    fun needViewModel(): BaseViewModel<B>
 
 }
