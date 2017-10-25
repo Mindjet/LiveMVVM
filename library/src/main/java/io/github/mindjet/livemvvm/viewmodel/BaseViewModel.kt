@@ -1,7 +1,6 @@
 package io.github.mindjet.livemvvm.viewmodel
 
 import android.arch.lifecycle.ViewModel
-import android.content.Context
 import android.databinding.ViewDataBinding
 import io.github.mindjet.livemvvm.BR
 import io.github.mindjet.livemvvm.view.BaseActivity
@@ -13,7 +12,10 @@ import java.lang.ref.WeakReference
 abstract class BaseViewModel<B : ViewDataBinding> : ViewModel() {
 
     protected var binding: B? = null
-    protected var boundActivity: WeakReference<BaseActivity<B>>? = null
+    protected val context by lazy { binding?.root?.context }
+    protected val activity by lazy { boundActivity?.get() }
+
+    private var boundActivity: WeakReference<BaseActivity<B>>? = null
 
     fun onAttachedWithActivity(binding: B, baseActivity: BaseActivity<B>) {
         this.binding = binding
@@ -35,12 +37,24 @@ abstract class BaseViewModel<B : ViewDataBinding> : ViewModel() {
 
     }
 
-    protected open fun getContext(): Context? {
-        return binding?.root?.context
+    open fun onBackPressed(): Boolean {
+        return false
     }
 
-    protected open fun getActivity(): BaseActivity<B>? {
-        return boundActivity?.get()
+    open fun onResume() {
+
+    }
+
+    open fun onStart() {
+
+    }
+
+    open fun onPause() {
+
+    }
+
+    open fun onStop() {
+
     }
 
 }

@@ -21,9 +21,4 @@ abstract class BaseItemViewModel<B : ViewDataBinding> : BaseViewModel<B>() {
         }
     }
 
-    override fun getActivity(): Nothing {
-        throw KotlinNullPointerException("BaseItemViewModel does not has a reference to activity.")
-    }
-
-
 }
