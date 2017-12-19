@@ -2,7 +2,7 @@
 
 [![Author](https://img.shields.io/badge/author-mindjet-yellow.svg)](https://github.com/Mindjet)
 
-<img src="./art/LiveMVVM.png" width="260"/>
+<img src="./art/LiveMVVM.png" width="600"/>
 
 ## Intro
 
