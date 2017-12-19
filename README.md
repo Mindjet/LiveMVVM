@@ -1,6 +1,6 @@
 # LiveMVVM
 
-[![Author](https://img.shields.io/badge/author-mindjet-yellow.svg)](https://github.com/Mindjet)
+[![Author](https://img.shields.io/badge/author-mindjet-yellow.svg)](https://github.com/Mindjet)[![](https://jitpack.io/v/Mindjet/LiveMVVM.svg)](https://jitpack.io/#Mindjet/LiveMVVM)
 
 <img src="./art/LiveMVVM.png" width="600"/>
 
