@@ -1,6 +1,6 @@
 # LiveMVVM
 
-[![Author](https://img.shields.io/badge/author-mindjet-yellow.svg)](https://github.com/Mindjet)[![](https://jitpack.io/v/Mindjet/LiveMVVM.svg)](https://jitpack.io/#Mindjet/LiveMVVM)
+[![Author](https://img.shields.io/badge/author-mindjet-yellow.svg)](https://github.com/Mindjet) [![](https://jitpack.io/v/Mindjet/LiveMVVM.svg)](https://jitpack.io/#Mindjet/LiveMVVM)
 
 <img src="./art/LiveMVVM.png" width="600"/>
 
@@ -24,9 +24,9 @@ repositories {
 And in your module-level `build.gradle`:
 
 ```groovy
-implementation 'com.github.Mindjet:LiveMVVM:v1.0.0'		//gralde 4.x
+implementation 'com.github.Mindjet:LiveMVVM:x.y.z'		//gralde 4.x
 //or
-compile 'com.github.Mindjet:LiveMVVM:v1.0.0'		//gradle 3.x
+compile 'com.github.Mindjet:LiveMVVM:x.y.z'		//gradle 3.x
 ```
 
 Last but not least, add `android-architecture` library to your module:
