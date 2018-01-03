@@ -14,13 +14,13 @@ abstract class BaseViewModel<B : ViewDataBinding> : ViewModel() {
 
     protected lateinit var binding: B
     protected lateinit var context: Context
-    protected lateinit var activity: BaseActivity<B>
+    protected lateinit var activity:BaseActivity<B>
 
     fun onAttachedWithActivity(binding: B, baseActivity: BaseActivity<B>) {
         this.binding = binding
         this.context = binding.root.context
         this.activity = baseActivity
-        this.binding.setVariable(BR.data, this)
+        this.binding?.setVariable(BR.data, this)
         onAttachedTheFirstTime(binding)
         onAttached(binding)
     }
