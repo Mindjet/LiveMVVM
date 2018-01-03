@@ -1,6 +1,7 @@
 package io.github.mindjet.livemvvm.viewmodel
 
 import android.arch.lifecycle.ViewModel
+import android.content.Context
 import android.databinding.ViewDataBinding
 import io.github.mindjet.livemvvm.BR
 import io.github.mindjet.livemvvm.view.BaseActivity
@@ -11,16 +12,15 @@ import java.lang.ref.WeakReference
  */
 abstract class BaseViewModel<B : ViewDataBinding> : ViewModel() {
 
-    protected var binding: B? = null
-    protected val context by lazy { binding?.root?.context }
-    protected val activity by lazy { boundActivity?.get() }
-
-    private var boundActivity: WeakReference<BaseActivity<B>>? = null
+    protected lateinit var binding: B
+    protected lateinit var context: Context
+    protected lateinit var activity: BaseActivity<B>
 
     fun onAttachedWithActivity(binding: B, baseActivity: BaseActivity<B>) {
         this.binding = binding
-        this.binding?.setVariable(BR.data, this)
-        this.boundActivity = WeakReference(baseActivity)
+        this.context = binding.root.context
+        this.activity = baseActivity
+        this.binding.setVariable(BR.data, this)
         onAttachedTheFirstTime(binding)
         onAttached(binding)
     }
